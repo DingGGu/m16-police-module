@@ -1,0 +1,64 @@
+<include target="_header.html" />
+<div class="police_report_wrap">
+    <div class="police_report_title">
+        <div class="police_report_title_regdate">{$oDocument->getRegdate('Y.m.d H:i:s')}</div>
+        <div class="police_report_title_name">
+            <!--@if($oReport->report_type==1)-->
+            <span class="police_round normal">일반신고</span>
+            <!--@elseif($oReport->report_type==2)-->
+            <span class="police_round boho">보호맵</span>
+            <!--@end-->
+            CASE #{$oReport->police_srl} :: {$oDocument->getTitle()}
+        </div>
+    </div>
+    <ul class="police_report_ul">
+        <li>신고자: {$oDocument->getNickname()}</li>
+        <li>대상자: {$oReport->nick_criminal}</li>
+    </ul>
+    <div class="police_report_content">
+        {$oDocument->getContent()}
+        <!--@if($oReport->judge_status==0 && $oReport->reporter_srl == $logged_info->member_srl)-->
+        <a href="{getUrl('', 'mid', $mid, 'police_srl', $oReport->police_srl, 'act', 'dispPoliceReport')}" class="police_btn">수정하기</a>
+        <!--@end-->
+    </div>
+    <div class="police_report_file">
+        첨부파일:
+        <block loop="$oDocument->getUploadedFiles()=>$key,$file">
+            <a href="{$file->download_url}">{$file->source_filename}</a>
+        </block>
+    </div>
+    <ul class="police_judge_ul">
+        <!--@if($oReport->judge_status==0)-->
+        <li>처리 대기 중인 신고 건 입니다.</li>
+        <!--@else-->
+        <li>신고처리가 완료되었습니다.</li>
+        <li><b>처리 운영진: {$oReport->nick_judge_admin}</b></li>
+        <li>처리 시간: {$oJudge->getRegdate('Y.m.d H:i:s')}</li>
+        <!--@if($oReport->judge_status==1)-->
+        <li>상태: <span class="police_round judge">처리완료</span></li>
+        <!--@else-->
+        <li>상태: <span class="police_round reject">반려</span> - <a href="{getUrl('', 'mid', 'page_regulration')}"><b>신고규정</b></a>을 확인해보세요.</li>
+        <!--@end-->
+        <li>처리IP : {$oReport->judge_ip_address}</li>
+        <li>{$oJudge->getContent()}</li>
+    </ul>
+    <!--@end-->
+</div>
+
+<!--@if($logged_info->is_admin=="Y" || $grant->write_judge == 1)-->
+<h2>M16 Abuse Team Report 2.0 - Judgement Process</h2>
+<p>운영팀 {$logged_info->user_id}님, 안녕하세요? 항상 수고해주셔서 감사합니다!</p>
+<p>항상 공정한 판단 부탁드립니다.</p>
+        슈바바아랑랑ㄹ알알아라알아ㅏㅇ라ㅏㅏㅏㅏㅏ아랑랑라알알ㄹ
+<form action="./" method="post" class="police_judge_form">
+    <input type="hidden" name="mid" value="{$mid}" />
+    <input type="hidden" name="act" value="procPoliceJudge" />
+    <input type="hidden" name="police_srl" value="{$oReport->police_srl}" />
+
+    <input type="radio" name="judge_status" value="1" id="radio1" /><label for="radio1">처리</label>
+    <input type="radio" name="judge_status" value="2" id="radio2" /><label for="radio2">반려</label>
+    <input class="police_judge_input" type="text" name="judge_ip_address" placeholder="처리 IP / 정확하게 입력하세요."/>
+    <textarea name="content" cols="100" rows="20"></textarea>
+    <button type="submit" class="report_btn">등록</button>
+</form>
+<!--@end-->

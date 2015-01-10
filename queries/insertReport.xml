@@ -1,0 +1,20 @@
+<query id="insertReport" action="insert">
+    <tables>
+        <table name="police" />
+    </tables>
+    <columns>
+        <column name="police_srl" var="police_srl" />
+        <column name="report_type" var="report_type" filter="number" />
+        <column name="document_srl" var="document_srl" filter="number" />
+        <column name="nick_reporter" var="nick_reporter" />
+        <column name="reporter_srl" var="reporter_srl" />
+        <column name="nick_criminal" var="nick_criminal" />
+        <column name="regdate" var="regdate" default="curdate()"/>
+        <column name="nick_judge_admin" var="nick_judge_admin" />
+        <column name="judge_admin_srl" var="judge_admin_srl" />
+        <column name="judge_srl" var="judge_srl" />
+        <column name="judge_ip_address" var="judge_ip_address" />
+        <column name="judge_status" var="judge_status" default="0" />
+        <column name="already_judge" var="already_judge" default="N" />
+    </columns>
+</query>

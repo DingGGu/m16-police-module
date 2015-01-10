@@ -1,0 +1,10 @@
+<query id="getReportList" action="select">
+    <tables>
+        <table name="police" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+    </conditions>
+</query>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module version="0.2">
+<title xml:lang="ko">M16 신고센터 모듈</title>
+<description xml:lang="ko">M16 신고센터 모듈</description>
+<version>0.1</version>
+<link>http://ggu.la/police</link>
+<category>service</category>
+<date>2014-12-23</date>
+<license link="http://ggu.la">For M16</license>
+<author email_address="admin@gnetwork.kr" link="http://ggu.la">
+    <name xml:lang="ko">딩꾸</name>
+</author>
+</module>

@@ -1,0 +1,371 @@
+@charset "utf-8";
+
+.police_btn_wrap {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.police_btn_wrap input {
+    -webkit-appearance: none;
+}
+
+.police_fr {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.police_btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border:1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fcfcfc;
+    font-size: 11px;
+}
+
+.police_search_wrap {
+    float: left;
+}
+
+.police_search_select {
+    margin: 0;
+    outline: 0;
+    padding: 6px 3px;
+    border-radius: 3px 0 0 3px;
+    border-top-width: 1px solid #cccccc;
+    border-right-width: 0;
+    border-left-width: 1px solid #cccccc;
+    border-bottom-width: 1px solid #cccccc;
+    background-color: #fcfcfc;
+    font-size: 11px;
+}
+
+.police_search_input {
+    padding: 7px 3px;
+    border: 1px solid #cccccc;
+    margin: 0;
+    outline: 0;
+    border-radius: 0 3px 3px 0;
+    background-color: #fcfcfc;
+}
+
+.police_search_submit {
+    padding: 8px 15px;
+    border:1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fcfcfc;
+    font-size: 11px;
+}
+
+.police_title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.police_title h2 {
+    font-size: 40px;
+}
+.police_title span {
+    font-size: 15px;
+    padding: 3px;
+    border-radius: 25%;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    background-color: red;
+}
+
+.police_header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    text-align: right;
+    color: #333333;
+}
+
+.police_list {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+.police_list .bnick {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.police_list th, .police_list td {
+    white-space: nowrap;
+    padding: 9px 12px;
+}
+
+.police_list th {
+    padding: 8px 12px;
+    color: #555555;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.police_list td { text-align: center; border-bottom: 1px solid #EEEEEE; }
+.police_list .title_td { text-align: left; word-break: break-all; white-space: normal; }
+
+.police_nav {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.police_report_wrap {
+
+}
+.police_report_wrap .document_popup_menu { display: none; }
+
+.police_report_title {
+    padding: 14px 10px 14px 20px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    background-color: #fcfcfc;
+    font-weight: bold;
+}
+
+.police_report_title_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.police_report_title_regdate {
+    float: right;
+    font-weight: normal;
+    color: #333333;
+}
+
+.police_report_ul li {
+    display: block;
+    padding: 14px 10px 14px 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.police_report_content {
+    padding: 30px 10px 40px 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.police_report_file {
+    padding: 14px 10px 14px 20px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 40px;
+}
+
+.police_judge_ul li {
+    display: block;
+    padding: 14px 10px 14px 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.police_judge_ul li:first-child {
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    background-color: #fcfcfc;
+    font-weight: bold;
+}
+
+.police_judge_form {
+}
+
+input[type=radio] {
+    display:none;
+}
+
+input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-bottom-color: #b3b3b3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+
+input[type=radio]:checked + label {
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    background-color: #e0e0e0;
+}
+
+.police_judge_input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    outline: 0;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    transition: border .3s linear;
+}
+
+.police_judge_form textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    outline: 0;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: border .3s linear;
+}
+
+.police_judge_input:focus, .police_judge_form textarea:focus {
+    border: 1px solid #0095cb;
+}
+
+.police_round {
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 90%;
+    color: #ffffff;
+    padding: 3px 7px;
+    text-shadow: 0 1px 0 #666666;
+}
+
+.police_judge_result {
+    border: 1px solid #c5c5c5;
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.police_judge_content {
+
+}
+
+.wait { background-color: #FF8600; }
+.judge { background-color: #0052CB; }
+.reject { background-color: #FF3636; }
+.all { background-color: #4c0094 }
+.boho { background-color: #ff2c7a }
+.normal { background-color: #01add1 }
+
+.police_submit {
+    width: 100%;
+    background: #45484d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #1d1d1d;
+}
+
+.police_chart {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+.police_chart .bnick {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.police_chart th, .police_chart td {
+    white-space: nowrap;
+    padding: 9px 12px;
+}
+
+.police_chart th {
+    padding: 8px 12px;
+    color: #555555;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.police_chart td { text-align: center; border-bottom: 1px solid #EEEEEE; }
+
+.editor_top {
+    position: relative;
+    bottom: 0;
+    background: #f8f8f8 url(/modules/editor/skins/xpresseditor/img/bg_tool.gif) repeat-x bottom left;
+    height: 36px;
+    line-height: 31px;
+    padding: 1px 10px;
+    border: 1px solid #C2C2C2;
+    border-bottom-width: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.editor_top input[type="text"]{
+    padding: 1px 5px;
+}
+
+.editor_top_txt {
+    float: left;
+    width: 70px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.editor_title {
+    width: 450px;
+}
+
+.editor_top_desc {
+    font-size: 13px;
+    color: #333333;
+}
+
+.report_btn {
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    font-weight: bold;
+}

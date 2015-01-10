@@ -1,0 +1,50 @@
+<include target="_header.html" />
+<table class="police_chart">
+    <caption>전체 신고처리 통계</caption>
+    <tr>
+        <th>날짜</th>
+        <th>처리비율</th>
+        <th><span class="police_round wait">대기중</span></th>
+        <th><span class="police_round reject">반려</span></th>
+        <th><span class="police_round judge">처리완료</span></th>
+        <th><span class="police_round all">전체</span></th>
+    </tr>
+    <tr>
+        <td><b>오늘</b></td>
+        <td>{number_format($result->today->judge/$result->today->all*100)}%</td>
+        <td>{$result->today->wait}개</td>
+        <td>{$result->today->reject}개</td>
+        <td>{$result->today->judge}개</td>
+        <td>{$result->today->all}개</td>
+    </tr>
+    <tr>
+        <td><b>전체</b></td>
+        <td>{number_format($result->report->judge/$result->report->all*100)}%</td>
+        <td>{$result->report->wait}개</td>
+        <td>{$result->report->reject}개</td>
+        <td>{$result->report->judge}개</td>
+        <td>{$result->report->all}개</td>
+    </tr>
+</table>
+<br />
+<table class="police_chart">
+    <caption>운영진별 신고처리 통계</caption>
+    <tr>
+        <th>번호</th>
+        <th>처리 운영진</th>
+        <th>전체비율</th>
+        <th>처리비율</th>
+        <th><span class="police_round reject">반려</span></th>
+        <th><span class="police_round judge">처리완료</span></th>
+        <th><span class="police_round all">전체</span></th>
+    </tr>
+    <tr loop="$result->admin => $no, $val">
+        <td>{$no}</td>
+        <td><span class="bnick">{$val->nick}</span></td>
+        <td>{number_format($val->all/$result->report->all*100)}%</td>
+        <td>{number_format($val->judge/$val->all*100)}%</td>
+        <td>{$val->reject}개</td>
+        <td>{$val->judge}개</td>
+        <td>{$val->all}개</td>
+    </tr>
+</table>

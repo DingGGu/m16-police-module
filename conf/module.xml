@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants>
+        <grant name="list" default="member">
+            <title xml:lang="ko">목록 보기</title>
+        </grant>
+        <grant name="view" default="member">
+            <title xml:lang="ko">내용 보기</title>
+        </grant>
+        <grant name="write_report" default="member">
+            <title xml:lang="ko">신고 하기</title>
+        </grant>
+        <grant name="write_judge" default="manager">
+            <title xml:lang="ko">신고 처리</title>
+        </grant>
+    </grants>
+    <permissions>
+        <permission action="dispPoliceAdminConfig" target="manager" />
+        <permission action="procPoliceAdminConfig" target="manager" />
+    </permissions>
+    <actions>
+        <action name="dispPoliceAdminConfig" type="view" admin_index="true" />
+
+        <action name="procPoliceAdminConfig" type="controller" />
+
+        <action name="dispPoliceReport" type="view" standalone="false" />
+        <action name="dispPoliceView" type="view" standalone="false" index="true" />
+        <action name="dispMyReport" type="view" standalone="false" />
+        <action name="dispPoliceChart" type="view" standalone="false" />
+
+        <action name="procPoliceReport" type="controller" standalone="false" ruleset="insert_report" />
+        <action name="procPoliceJudge" type="controller" standalone="false" />
+
+    </actions>
+</module>
