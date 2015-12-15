@@ -1,9 +1,9 @@
 <query id="getReportList" action="select">
     <tables>
-        <table name="police" />
+        <table name="police"/>
     </tables>
     <columns>
-        <column name="*" />
+        <column name="*"/>
     </columns>
     <conditions>
     </conditions>

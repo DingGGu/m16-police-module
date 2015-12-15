@@ -1,24 +1,24 @@
 <query id="getReportList" action="select">
     <tables>
-        <table name="police" />
+        <table name="police"/>
     </tables>
     <columns>
-        <column name="*" />
+        <column name="*"/>
     </columns>
     <conditions>
-        <condition operation="like" column="judge_ip_address" var="s_judge_ip_address" />
-        <condition operation="like" column="nick_reporter" var="s_nick_reporter" pipe="or" />
-        <condition operation="equal" column="reporter_srl" var="s_reporter_srl" pipe="or" />
-        <condition operation="like" column="nick_criminal" var="s_nick_criminal" pipe="or" />
-        <condition operation="like" column="regdate" var="s_regdate" pipe="or" />
-        <condition operation="like" column="nick_judge_admin" var="s_nick_judge_admin" pipe="or" />
-        <condition operation="equal" column="judge_admin_srl" var="s_judge_admin_srl" pipe="or" />
-        <condition operation="equal" column="judge_status" var="s_judge_status" pipe="or" />
+        <condition operation="like" column="judge_ip_address" var="s_judge_ip_address"/>
+        <condition operation="like" column="nick_reporter" var="s_nick_reporter" pipe="or"/>
+        <condition operation="equal" column="reporter_srl" var="s_reporter_srl" pipe="or"/>
+        <condition operation="like" column="nick_criminal" var="s_nick_criminal" pipe="or"/>
+        <condition operation="like" column="regdate" var="s_regdate" pipe="or"/>
+        <condition operation="like" column="nick_judge_admin" var="s_nick_judge_admin" pipe="or"/>
+        <condition operation="equal" column="judge_admin_srl" var="s_judge_admin_srl" pipe="or"/>
+        <condition operation="equal" column="judge_status" var="s_judge_status" pipe="or"/>
     </conditions>
     <navigation>
-        <index var="sort_index" default="police_srl" order="desc" />
-        <list_count var="list_count" default="20" />
-        <page_count var="page_count" default="10" />
-        <page var="page" default="1" />
+        <index var="sort_index" default="police_srl" order="desc"/>
+        <list_count var="list_count" default="20"/>
+        <page_count var="page_count" default="10"/>
+        <page var="page" default="1"/>
     </navigation>
 </query>

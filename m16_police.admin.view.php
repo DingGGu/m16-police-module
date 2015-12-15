@@ -1,6 +1,9 @@
 <?php
-class m16_policeAdminView extends m16_police {
-    function init() {
+
+class m16_policeAdminView extends m16_police
+{
+    function init()
+    {
         // 설정 정보 가져오기
         $oModuleModel = &getModel('module');
         $police_info = $oModuleModel->getModuleInfoByMid("police");
@@ -13,14 +16,15 @@ class m16_policeAdminView extends m16_police {
         Context::set('module_category', $module_category);
 
         // template path지정
-        $this->setTemplatePath($this->module_path.'tpl');
+        $this->setTemplatePath($this->module_path . 'tpl');
     }
 
-    function dispPoliceAdminConfig() {
+    function dispPoliceAdminConfig()
+    {
         // 스킨목록 가져오기
         $oModuleModel = &getModel('module');
         $skin_list = $oModuleModel->getSkins($this->module_path);
-        Context::set('skin_list',$skin_list);
+        Context::set('skin_list', $skin_list);
 
         // 레이아웃 목록을 구해옴
         $oLayoutMode = &getModel('layout');

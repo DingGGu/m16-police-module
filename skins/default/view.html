@@ -1,4 +1,4 @@
-<include target="_header.html" />
+<include target="_header.html"/>
 <div class="police_report_wrap">
     <div class="police_report_title">
         <div class="police_report_title_regdate">{$oDocument->getRegdate('Y.m.d H:i:s')}</div>
@@ -23,7 +23,8 @@
     <div class="police_report_content">
         {$oDocument->getContent()}
         <!--@if($oReport->judge_status==0 && $oReport->reporter_srl == $logged_info->member_srl)-->
-        <a href="{getUrl('', 'mid', $mid, 'police_srl', $oReport->police_srl, 'act', 'dispPoliceReport')}" class="police_btn">수정하기</a>
+        <a href="{getUrl('', 'mid', $mid, 'police_srl', $oReport->police_srl, 'act', 'dispPoliceReport')}"
+           class="police_btn">수정하기</a>
         <!--@end-->
     </div>
     <div class="police_report_file">
@@ -42,7 +43,9 @@
         <!--@if($oReport->judge_status==1)-->
         <li>상태: <span class="police_round judge">처리완료</span></li>
         <!--@else-->
-        <li>상태: <span class="police_round reject">반려</span> - <a href="{getUrl('', 'mid', 'page_regulration')}"><b>신고규정</b></a>을 확인해보세요.</li>
+        <li>상태: <span class="police_round reject">반려</span> - <a
+                href="{getUrl('', 'mid', 'page_regulration')}"><b>신고규정</b></a>을 확인해보세요.
+        </li>
         <!--@end-->
         <li>처리IP : {$oReport->judge_ip_address}</li>
         <li>{$oJudge->getContent()}</li>
@@ -55,12 +58,12 @@
 <p>Be Free, Take Reposibility - 딩꾸</p>
 <p>일해라 - Pandora</p>
 <form action="./" method="post" class="police_judge_form">
-    <input type="hidden" name="mid" value="{$mid}" />
-    <input type="hidden" name="act" value="procPoliceJudge" />
-    <input type="hidden" name="police_srl" value="{$oReport->police_srl}" />
+    <input type="hidden" name="mid" value="{$mid}"/>
+    <input type="hidden" name="act" value="procPoliceJudge"/>
+    <input type="hidden" name="police_srl" value="{$oReport->police_srl}"/>
 
-    <input type="radio" name="judge_status" value="1" id="radio1" /><label for="radio1">처리</label>
-    <input type="radio" name="judge_status" value="2" id="radio2" /><label for="radio2">반려</label>
+    <input type="radio" name="judge_status" value="1" id="radio1"/><label for="radio1">처리</label>
+    <input type="radio" name="judge_status" value="2" id="radio2"/><label for="radio2">반려</label>
     <input class="police_judge_input" type="text" name="judge_ip_address" placeholder="처리 IP / 정확하게 입력하세요."/>
     <textarea name="content" cols="100" rows="20"></textarea>
     <button type="submit" class="report_btn">등록</button>

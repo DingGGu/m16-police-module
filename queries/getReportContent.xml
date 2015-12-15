@@ -1,11 +1,11 @@
 <query id="getReportContent" action="select">
     <tables>
-        <table name="police" />
+        <table name="police"/>
     </tables>
     <columns>
-        <column name="*" />
+        <column name="*"/>
     </columns>
     <conditions>
-        <condition operation="equal" column="police_srl" var="police_srl" />
+        <condition operation="equal" column="police_srl" var="police_srl"/>
     </conditions>
 </query>

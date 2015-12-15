@@ -1,10 +1,10 @@
 <filter name="police_insert" module="m16_police" act="procPoliceReport" confirm_msg_code="confirm_submit">
     <form>
-        <node target="criminal" maxlength="40" />
+        <node target="criminal" maxlength="40"/>
     </form>
-    <parameter />
+    <parameter/>
     <reponse callback_func="completeContentInsert">
-        <tag name="error" />
-        <tag name="message" />
+        <tag name="error"/>
+        <tag name="message"/>
     </reponse>
 </filter>

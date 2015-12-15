@@ -1,16 +1,17 @@
 <table name="police">
-    <column name="police_srl" type="number" size="11" notnull="notnull" auto_increment="auto_increment" primary_key="primary_key" />
-    <column name="report_type" type="number" size="2" notnull="notnull" />
-<column name="document_srl" type="number" size="11" notnull="notnull" />
-<column name="nick_reporter" type="varchar" size="40" />
-<column name="nick_reporter_srl" type="number" size="11" />
-<column name="report_url" type="text" />
-<column name="nick_criminal" type="varchar" size="40" />
-<column name="regdate" type="date" />
-<column name="nick_judge_admin" type="varchar" size="40" />
-<column name="nick_judge_admin_srl" type="number" size="11" />
-<column name="judge_srl" type="number" size="11" />
-<column name="judge_ip_address" type="varchar" size="20" />
-<column name="judge_status" type="number" size="2" />
-<column name="already_judge" type="char" size="1" default="N" notnull="notnull" />
-        </table>
+    <column name="police_srl" type="number" size="11" notnull="notnull" auto_increment="auto_increment"
+            primary_key="primary_key"/>
+    <column name="report_type" type="number" size="2" notnull="notnull"/>
+    <column name="document_srl" type="number" size="11" notnull="notnull"/>
+    <column name="nick_reporter" type="varchar" size="40"/>
+    <column name="nick_reporter_srl" type="number" size="11"/>
+    <column name="report_url" type="text"/>
+    <column name="nick_criminal" type="varchar" size="40"/>
+    <column name="regdate" type="date"/>
+    <column name="nick_judge_admin" type="varchar" size="40"/>
+    <column name="nick_judge_admin_srl" type="number" size="11"/>
+    <column name="judge_srl" type="number" size="11"/>
+    <column name="judge_ip_address" type="varchar" size="20"/>
+    <column name="judge_status" type="number" size="2"/>
+    <column name="already_judge" type="char" size="1" default="N" notnull="notnull"/>
+</table>

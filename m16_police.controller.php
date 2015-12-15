@@ -1,15 +1,18 @@
 <?php
+
 /**
  * User: DingGGu
  * Date: 2014-12-23
  */
-
-class m16_policeController extends m16_police {
-    function Init() {
+class m16_policeController extends m16_police
+{
+    function Init()
+    {
     }
 
 
-    function procPoliceReport() {
+    function procPoliceReport()
+    {
         // 권한 체크
         if (!$this->grant->write_report) {
             return new Object(-1, 'msg_not_permitted');
@@ -19,8 +22,8 @@ class m16_policeController extends m16_police {
 
         $obj = Context::getRequestVars();
 
-        if(isset($obj->police_srl)) {
-            if($obj->already_judge == 'Y') return new Object(-1, '이미 처리된 사건입니다.');
+        if (isset($obj->police_srl)) {
+            if ($obj->already_judge == 'Y') return new Object(-1, '이미 처리된 사건입니다.');
 
             $oDocumentModel = &getModel('document');
             $oDocument = $oDocumentModel->getDocument($obj->document_srl);
@@ -33,7 +36,7 @@ class m16_policeController extends m16_police {
             $output = $oDocumentController->updateDocument($oDocument, $obj);
 
             $output2 = executeQuery("m16_police.updateReport", $obj);
-            if(!$output2->toBool()) return $output2;
+            if (!$output2->toBool()) return $output2;
         } else {
 
             $obj->reporter_srl = $logged_info->member_srl;
@@ -57,7 +60,7 @@ class m16_policeController extends m16_police {
             $obj->document_srl = $output->get('document_srl');
 
             $output2 = executeQuery("m16_police.insertReport", $obj);
-            if(!$output2->toBool()) return $output2;
+            if (!$output2->toBool()) return $output2;
         }
 
         $returnUrl = getNotEncodedUrl('', 'mid', $this->mid, 'document_srl', $output->get('document_srl'));
@@ -65,7 +68,8 @@ class m16_policeController extends m16_police {
 
     }
 
-    function procPoliceJudge() {
+    function procPoliceJudge()
+    {
         if (!$this->grant->write_judge) {
             return new Object(-1, 'msg_not_permitted');
         }
@@ -87,8 +91,7 @@ class m16_policeController extends m16_police {
         $oDocumentController = getController('document');
         $output = $oDocumentController->insertDocument($args);
 
-        if(!$output->get('document_srl'))
-        {
+        if (!$output->get('document_srl')) {
             return new Object(-1, 'invalid_request');
         }
 
@@ -118,8 +121,8 @@ class m16_policeController extends m16_police {
 
         $oCommunicationController = &getController('communication');
 
-        $msg_title = "접수하신 사건번호 #".$output2->police_srl."의 신고처리가 완료되었습니다.";
-        $msg_content = "접수하신 사건번호 #".$output2->police_srl."의 신고처리가 완료되었습니다.<br /> <a href=".$returnUrl.">신고 보기</a>";
+        $msg_title = "접수하신 사건번호 #" . $output2->police_srl . "의 신고처리가 완료되었습니다.";
+        $msg_content = "접수하신 사건번호 #" . $output2->police_srl . "의 신고처리가 완료되었습니다.<br /> <a href=" . $returnUrl . ">신고 보기</a>";
         $output4 = $oCommunicationController->sendMessage($admin_srl, $reporter_srl, $msg_title, $msg_content);
 
         $this->setRedirectUrl($returnUrl);

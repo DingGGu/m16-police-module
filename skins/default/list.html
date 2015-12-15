@@ -1,47 +1,49 @@
-<include target="_header.html" />
+<include target="_header.html"/>
 <div class="clear"></div>
 <div class="police_header">총 {number_format($total_count)}개의 신고</div>
 <table class="police_list">
     <thead>
-        <tr>
-            <th scope="col" class="no">{$lang->no}</th>
-            <th scope="col" class="title">{$lang->title}</th>
-            <th scope="col" class="criminal">대상자</th>
-            <th scope="col" class="nick">처리자</th>
-            <th scope="col" class="result">상태</th>
-            <th scope="col" class="regdate">날짜</th>
-        </tr>
+    <tr>
+        <th scope="col" class="no">{$lang->no}</th>
+        <th scope="col" class="title">{$lang->title}</th>
+        <th scope="col" class="criminal">대상자</th>
+        <th scope="col" class="nick">처리자</th>
+        <th scope="col" class="result">상태</th>
+        <th scope="col" class="regdate">날짜</th>
+    </tr>
     </thead>
     <tbody>
-        <tr><td colspan="6"><b>신고센터 2.0 개편 이전 처리건은 재접속 신고가 불가능 합니다.</b></td></tr>
-        <tr loop="$report_list => $no, $report">
-            {@$oDocument = $oDocumentModel->getDocument($report->document_srl)}
-            {@$title = $oDocument->getTitle()}
-            {@$regdate = $oDocument->getRegdate("Y-m-d")}
-            <td>{$no}</td>
-            <td class="title_td">
-                <!--@if($report->report_type==1)-->
-                <span class="police_round normal">일반신고</span>
-                <!--@elseif($report->report_type==2)-->
-                <span class="police_round boho">보호맵</span>
-                <!--@elseif($report->report_type==3)-->
-                <span class="police_round jaejup">재접속</span>
-                <!--@end-->
-                <a href="{getUrl('', 'mid', $mid, 'police_srl', $report->police_srl)}">{$title}</a>
-            </td>
-            <td>{$report->nick_criminal}</td>
-            <td class="bnick">{$report->nick_judge_admin}</td>
-            <td>
-                <!--@if($report->judge_status==0)-->
-                <span class="police_round wait">대기중</span>
-                <!--@elseif($report->judge_status==1)-->
-                <span class="police_round judge">처리완료</span>
-                <!--@elseif($report->judge_status==2)-->
-                <span class="police_round reject">반려</span>
-                <!--@end-->
-            </td>
-            <td>{$regdate}</td>
-        </tr>
+    <tr>
+        <td colspan="6"><b>신고센터 2.0 개편 이전 처리건은 재접속 신고가 불가능 합니다.</b></td>
+    </tr>
+    <tr loop="$report_list => $no, $report">
+        {@$oDocument = $oDocumentModel->getDocument($report->document_srl)}
+        {@$title = $oDocument->getTitle()}
+        {@$regdate = $oDocument->getRegdate("Y-m-d")}
+        <td>{$no}</td>
+        <td class="title_td">
+            <!--@if($report->report_type==1)-->
+            <span class="police_round normal">일반신고</span>
+            <!--@elseif($report->report_type==2)-->
+            <span class="police_round boho">보호맵</span>
+            <!--@elseif($report->report_type==3)-->
+            <span class="police_round jaejup">재접속</span>
+            <!--@end-->
+            <a href="{getUrl('', 'mid', $mid, 'police_srl', $report->police_srl)}">{$title}</a>
+        </td>
+        <td>{$report->nick_criminal}</td>
+        <td class="bnick">{$report->nick_judge_admin}</td>
+        <td>
+            <!--@if($report->judge_status==0)-->
+            <span class="police_round wait">대기중</span>
+            <!--@elseif($report->judge_status==1)-->
+            <span class="police_round judge">처리완료</span>
+            <!--@elseif($report->judge_status==2)-->
+            <span class="police_round reject">반려</span>
+            <!--@end-->
+        </td>
+        <td>{$regdate}</td>
+    </tr>
     </tbody>
 </table>
 
@@ -55,19 +57,26 @@
 </div>
 <div class="police_btn_wrap">
     <form action="./" method="get" class="police_search_wrap" no-error-return-url="true">
-        <input type="hidden" name="mid" value="{$mid}" />
-        <input type="hidden" name="act" value="{$act}" />
+        <input type="hidden" name="mid" value="{$mid}"/>
+        <input type="hidden" name="act" value="{$act}"/>
         <select name="search_target" class="police_search_select">
             <option value="">{$lang->search_target}</option>
-            <option value="s_judge_ip_address" <!--@if($search_target=='s_judge_ip_address')-->selected="selected"<!--@end-->>처리된 아이피</option>
-            <option value="s_nick_reporter" <!--@if($search_target=='s_nick_reporter')-->selected="selected"<!--@end-->>신고자</option>
-            <option value="s_nick_criminal" <!--@if($search_target=='s_nick_criminal')-->selected="selected"<!--@end-->>대상자</option>
-            <option value="s_nick_judge_admin" <!--@if($search_target=='s_nick_judge_admin')-->selected="selected"<!--@end-->>처리 운영진</option>
-        </select><input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="police_search_input" />
+            <option value="s_judge_ip_address"
+            <!--@if($search_target=='s_judge_ip_address')-->selected="selected"<!--@end-->>처리된 아이피</option>
+            <option value="s_nick_reporter"
+            <!--@if($search_target=='s_nick_reporter')-->selected="selected"<!--@end-->>신고자</option>
+            <option value="s_nick_criminal"
+            <!--@if($search_target=='s_nick_criminal')-->selected="selected"<!--@end-->>대상자</option>
+            <option value="s_nick_judge_admin"
+            <!--@if($search_target=='s_nick_judge_admin')-->selected="selected"<!--@end-->>처리 운영진</option>
+        </select><input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}"
+                        class="police_search_input"/>
         <button type="submit" class="police_search_submit"><i class="fa fa-search"></i> 검색</button>
     </form>
     <div class="police_fr">
-        <a class="police_btn" href="{getUrl('', 'mid', $mid, 'act', 'dispPoliceView')}"><i class="fa fa-list"></i> 목록</a>
-        <a class="police_btn" href="{getUrl('', 'mid', $mid, 'act', 'dispPoliceReport')}"><i class="fa fa-check-square-o"></i> 신고</a>
+        <a class="police_btn" href="{getUrl('', 'mid', $mid, 'act', 'dispPoliceView')}"><i class="fa fa-list"></i>
+            목록</a>
+        <a class="police_btn" href="{getUrl('', 'mid', $mid, 'act', 'dispPoliceReport')}"><i
+                class="fa fa-check-square-o"></i> 신고</a>
     </div>
 </div>

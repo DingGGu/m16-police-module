@@ -15,22 +15,22 @@
         </grant>
     </grants>
     <permissions>
-        <permission action="dispPoliceAdminConfig" target="manager" />
-        <permission action="procPoliceAdminConfig" target="manager" />
+        <permission action="dispPoliceAdminConfig" target="manager"/>
+        <permission action="procPoliceAdminConfig" target="manager"/>
     </permissions>
     <actions>
-        <action name="dispPoliceAdminConfig" type="view" admin_index="true" />
+        <action name="dispPoliceAdminConfig" type="view" admin_index="true"/>
 
-        <action name="procPoliceAdminConfig" type="controller" />
+        <action name="procPoliceAdminConfig" type="controller"/>
 
-        <action name="dispPoliceReport" type="view" standalone="false" />
-        <action name="dispPoliceView" type="view" standalone="false" index="true" />
-        <action name="dispMyReport" type="view" standalone="false" />
-        <action name="dispWaitReport" type="view" standalone="false" />
-        <action name="dispPoliceChart" type="view" standalone="false" />
+        <action name="dispPoliceReport" type="view" standalone="false"/>
+        <action name="dispPoliceView" type="view" standalone="false" index="true"/>
+        <action name="dispMyReport" type="view" standalone="false"/>
+        <action name="dispWaitReport" type="view" standalone="false"/>
+        <action name="dispPoliceChart" type="view" standalone="false"/>
 
-        <action name="procPoliceReport" type="controller" standalone="false" ruleset="insert_report" />
-        <action name="procPoliceJudge" type="controller" standalone="false" />
+        <action name="procPoliceReport" type="controller" standalone="false" ruleset="insert_report"/>
+        <action name="procPoliceJudge" type="controller" standalone="false"/>
 
     </actions>
 </module>

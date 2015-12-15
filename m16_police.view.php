@@ -1,11 +1,13 @@
 <?php
+
 /**
  * User: DingGGu
  * Date: 2014-12-23
  */
-
-class m16_policeView extends m16_police {
-    function init() {
+class m16_policeView extends m16_police
+{
+    function init()
+    {
         // 설정 값 세팅
         $oModuleModel = getModel('module');
         $config = $oModuleModel->getModulePartConfig('m16_police', $this->module_info->module_srl);
@@ -17,7 +19,8 @@ class m16_policeView extends m16_police {
 
     }
 
-    function dispPoliceReport() {
+    function dispPoliceReport()
+    {
         if (!$this->grant->write_report) {
             return new Object(-1, 'msg_not_permitted');
         }
@@ -26,7 +29,7 @@ class m16_policeView extends m16_police {
 
         $police_srl = Context::get('police_srl');
 
-        if(isset($police_srl)) {
+        if (isset($police_srl)) {
             Context::set('police_srl', $police_srl);
 
             $oPoliceModel = &getModel('m16_police');
@@ -36,7 +39,7 @@ class m16_policeView extends m16_police {
 
             $oReport = $oPoliceModel->getReportContent($args);
 
-            if(($logged_info->member_srl != $oReport->reporter_srl) || $oReport->already_judge == 'Y') {
+            if (($logged_info->member_srl != $oReport->reporter_srl) || $oReport->already_judge == 'Y') {
                 return new Object(-1, 'msg_not_permitted');
             }
 
@@ -57,7 +60,8 @@ class m16_policeView extends m16_police {
         $this->setTemplateFile('report_form');
     }
 
-    function dispPoliceView() {
+    function dispPoliceView()
+    {
         $policeSrl = Context::get('police_srl');
 
         if ($policeSrl) {
@@ -67,7 +71,8 @@ class m16_policeView extends m16_police {
         }
     }
 
-    private function viewDocument() {
+    private function viewDocument()
+    {
         if (!$this->grant->view) {
             return new Object(-1, 'msg_not_permitted');
         }
@@ -102,7 +107,8 @@ class m16_policeView extends m16_police {
         $this->setTemplateFile('view');
     }
 
-    private function viewList() {
+    private function viewList()
+    {
         if (!$this->grant->list) return new Object(-1, 'msg_not_permitted');
 
         $args = new stdClass();
@@ -123,7 +129,8 @@ class m16_policeView extends m16_police {
         $this->setTemplateFile('list');
     }
 
-    function dispMyReport() {
+    function dispMyReport()
+    {
         if (!$this->grant->list) return new Object(-1, 'msg_not_permitted');
 
         $logged_info = Context::get('logged_info');
@@ -147,7 +154,8 @@ class m16_policeView extends m16_police {
         $this->setTemplateFile('list');
     }
 
-    function dispWaitReport() {
+    function dispWaitReport()
+    {
         if (!$this->grant->list) return new Object(-1, 'msg_not_permitted');
 
         $args = new stdClass();
@@ -172,7 +180,8 @@ class m16_policeView extends m16_police {
     /**
      *
      */
-    function dispPoliceChart() {
+    function dispPoliceChart()
+    {
         // 전체 신고 갯수
         $oPoliceModel = &getModel('m16_police');
         $output = $oPoliceModel->getReportChart();
@@ -181,7 +190,7 @@ class m16_policeView extends m16_police {
         $args = new stdClass();
         $args->selected_group_srl = 3205437;
         $args->list_count = 30;
-        $output2 = executeQuery('member.getMemberListWithinGroup',$args);
+        $output2 = executeQuery('member.getMemberListWithinGroup', $args);
 
         $report_chart = array();
 
@@ -223,7 +232,7 @@ class m16_policeView extends m16_police {
                     $a_cnt_reject++;
                     break;
             }
-            if ($val->regdate > date('Ymd000000',time()) && $val->regdate < date('Ymd999999',time())) {
+            if ($val->regdate > date('Ymd000000', time()) && $val->regdate < date('Ymd999999', time())) {
                 switch ($val->judge_status) {
                     case 0:
                         $t_cnt_wait++;
@@ -243,7 +252,7 @@ class m16_policeView extends m16_police {
         $result->today->wait = $t_cnt_wait;
         $result->today->reject = $t_cnt_reject;
         $result->today->judge = $t_cnt_judge;
-        $result->today->all = $t_cnt_wait+$t_cnt_reject+$t_cnt_judge;
+        $result->today->all = $t_cnt_wait + $t_cnt_reject + $t_cnt_judge;
 
         $result->report->wait = $a_cnt_wait;
         $result->report->reject = $a_cnt_reject;
