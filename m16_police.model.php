@@ -18,7 +18,6 @@ class m16_policeModel extends m16_police {
         }
 
         $output = executeQuery('m16_police.getReportList', $args);
-
         return $output;
     }
 

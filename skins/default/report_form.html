@@ -1,3 +1,25 @@
+<script>
+    (function($){
+        $(function() {
+            $("#type_selector").change(function() {
+                var v = $(this).val();
+                if (v == "1") {
+                    $("#type_url").empty();
+                }
+                else if (v == "2") {
+                    $("#type_url").empty();
+                }
+                else if (v == "3") {
+                    $("#type_url").html('<div class="editor_top_txt">기존 URL :</div>'+
+                    '<input type="text" name="report_url" value="{$oReport->report_url}" required/>'+
+                    '<span class="editor_top_desc"> * 기존 신고 링크를 입력하세요.</span>');
+                }
+            });
+
+        });
+    })(jQuery);
+</script>
+
 <include target="_header.html" />
 <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
     <p><i class="fa fa-warning"></i> {$XE_VALIDATOR_MESSAGE}</p>
@@ -12,22 +34,25 @@
 
     <div class="editor_top">
         <div class="editor_top_txt">신고분류 :</div>
-        <select name="report_type" required>
+        <select id="type_selector" name="report_type" required>
             <option value="">신고분류</option>
             <option value="1" <!--@if($oReport->report_type==1)-->selected="selected"<!--@end-->>일반신고</option>
             <option value="2" <!--@if($oReport->report_type==2)-->selected="selected"<!--@end-->>보호맵</option>
+            <option value="3" <!--@if($oReport->report_type==2)-->selected="selected"<!--@end-->>재접속</option>
         </select>
         <span class="editor_top_desc">* 신고센터는 모든 스크린샷에 '/a' 명령어가 포함되어 있어야 처리가 가능하며, 없을 시 무조건 <span class="police_round reject">반려</span> 처리 됩니다.</span>
     </div>
-    <div class="editor_top"
-            ><div class="editor_top_txt">신고자 :</div>
+    <div class="editor_top">
+        <div class="editor_top_txt">신고자 :</div>
         <input type="text" value="{$logged_info->user_id}" readonly required/>
         <span class="editor_top_desc">* 일반신고의 경우 닉네임 언급이 없다면 <span class="police_round reject">반려</span> 처리 됩니다.</span>
     </div>
-    <div class="editor_top">
+    <div class="editor_top" id="type_input">
         <div class="editor_top_txt">대상자 :</div>
         <input type="text" name="nick_criminal" value="{$oReport->nick_criminal}" required/>
         <span class="editor_top_desc">* 정확하게 한 명만 기입하세요.</span>
+    </div>
+    <div class="editor_top" id="type_url">
     </div>
     <div class="editor_top">
         <div class="editor_top_txt">제목 :</div>

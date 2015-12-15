@@ -7,6 +7,8 @@
             <span class="police_round normal">일반신고</span>
             <!--@elseif($oReport->report_type==2)-->
             <span class="police_round boho">보호맵</span>
+            <!--@elseif($oReport->report_type==3)-->
+            <span class="police_round jaejup">재접속</span>
             <!--@end-->
             CASE #{$oReport->police_srl} :: {$oDocument->getTitle()}
         </div>
@@ -14,6 +16,9 @@
     <ul class="police_report_ul">
         <li>신고자: {$oDocument->getNickname()}</li>
         <li>대상자: {$oReport->nick_criminal}</li>
+        <!--@if($oReport->report_type==3)-->
+        <li>기존 URL: <a href="{$oReport->report_url}">{$oReport->report_url}</a></li>
+        <!--@end-->
     </ul>
     <div class="police_report_content">
         {$oDocument->getContent()}
@@ -47,9 +52,8 @@
 
 <!--@if($logged_info->is_admin=="Y" || $grant->write_judge == 1)-->
 <h2>M16 Abuse Team Report 2.0 - Judgement Process</h2>
-<p>운영팀 {$logged_info->user_id}님, 안녕하세요? 항상 수고해주셔서 감사합니다!</p>
-<p>항상 공정한 판단 부탁드립니다.</p>
-        슈바바아랑랑ㄹ알알아라알아ㅏㅇ라ㅏㅏㅏㅏㅏ아랑랑라알알ㄹ
+<p>Be Free, Take Reposibility - 딩꾸</p>
+<p>일해라 - Pandora</p>
 <form action="./" method="post" class="police_judge_form">
     <input type="hidden" name="mid" value="{$mid}" />
     <input type="hidden" name="act" value="procPoliceJudge" />

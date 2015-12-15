@@ -18,7 +18,6 @@ class m16_policeController extends m16_police {
         $logged_info = Context::get('logged_info');
 
         $obj = Context::getRequestVars();
-        debugPrint($obj);
 
         if(isset($obj->police_srl)) {
             if($obj->already_judge == 'Y') return new Object(-1, '이미 처리된 사건입니다.');
@@ -115,12 +114,12 @@ class m16_policeController extends m16_police {
             $oPointController->setPoint($reporter_srl, $add_point_value, 'add');
         }
 
-        $returnUrl = getNotEncodedUrl('', 'mid', $this->mid, 'police_srl', $output3->police_srl);
+        $returnUrl = getNotEncodedUrl('', 'mid', $this->mid, 'police_srl', $output2->police_srl);
 
         $oCommunicationController = &getController('communication');
 
-        $msg_title = "접수하신 사건번호 #".$output3->police_srl."의 신고처리가 완료되었습니다.";
-        $msg_content = "접수하신 사건번호 #".$output3->police_srl."의 신고처리가 완료되었습니다.<br /> <a href=".$returnUrl.">신고 보기</a>";
+        $msg_title = "접수하신 사건번호 #".$output2->police_srl."의 신고처리가 완료되었습니다.";
+        $msg_content = "접수하신 사건번호 #".$output2->police_srl."의 신고처리가 완료되었습니다.<br /> <a href=".$returnUrl.">신고 보기</a>";
         $output4 = $oCommunicationController->sendMessage($admin_srl, $reporter_srl, $msg_title, $msg_content);
 
         $this->setRedirectUrl($returnUrl);

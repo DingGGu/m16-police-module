@@ -105,15 +105,6 @@ class m16_policeView extends m16_police {
     private function viewList() {
         if (!$this->grant->list) return new Object(-1, 'msg_not_permitted');
 
-        /*
-        $oModuleController = getController('module');
-        $oModuleModel = getModel('module');
-        var_dump($list = $oModuleModel->getModuleInfoByMid('police'));
-        $list->layout_srl = 17347570;
-        $output = $oModuleController->updateModule($list);
-*/
-
-
         $args = new stdClass();
         $args->page = Context::get('page');
 
@@ -140,6 +131,28 @@ class m16_policeView extends m16_police {
         $args = new stdClass();
         $args->page = Context::get('page');
         $args->s_reporter_srl = $logged_info->member_srl;
+
+        $oPoliceModel = &getModel('m16_police');
+        $output = $oPoliceModel->getReportList($args);
+
+        $oDocumentModel = getModel('document');
+
+        Context::set('oDocumentModel', $oDocumentModel);
+        Context::set('report_list', $output->data);
+        Context::set('total_count', $output->total_count);
+        Context::set('total_page', $output->total_page);
+        Context::set('page', $output->page);
+        Context::set('page_navigation', $output->page_navigation);
+
+        $this->setTemplateFile('list');
+    }
+
+    function dispWaitReport() {
+        if (!$this->grant->list) return new Object(-1, 'msg_not_permitted');
+
+        $args = new stdClass();
+        $args->page = Context::get('page');
+        $args->s_judge_status = 0;
 
         $oPoliceModel = &getModel('m16_police');
         $output = $oPoliceModel->getReportList($args);

@@ -24,6 +24,8 @@
                 <span class="police_round normal">일반신고</span>
                 <!--@elseif($report->report_type==2)-->
                 <span class="police_round boho">보호맵</span>
+                <!--@elseif($report->report_type==3)-->
+                <span class="police_round jaejup">재접속</span>
                 <!--@end-->
                 <a href="{getUrl('', 'mid', $mid, 'police_srl', $report->police_srl)}">{$title}</a>
             </td>
