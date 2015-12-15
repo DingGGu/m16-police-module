@@ -265,4 +265,19 @@ class m16_policeView extends m16_police
 
         $this->setTemplateFile('chart');
     }
+
+    function dispIpbanList()
+    {
+        $logged_info = Context::get('logged_info');
+
+        $args = new stdClass();
+        $args->banned_period = time();
+        $args->banned_perm = 0;
+
+        $oPoliceModel = &getModel('m16_police');
+        $output = $oPoliceModel->getIpban($args);
+
+        Context::set('result', $output);
+        $this->setTemplateFile('ipban_list');
+    }
 }

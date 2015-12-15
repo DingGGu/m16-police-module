@@ -1,0 +1,32 @@
+<include target="_header.html"/>
+<div class="clear"></div>
+<div class="clear"></div>
+<table class="police_list">
+    <thead>
+    <tr>
+        <th scope="col" class="no">처리{$lang->no}</th>
+        <th scope="col" class="title">아이피</th>
+        <th scope="col" class="criminal">기간</th>
+        <th scope="col" class="nick">처리자</th>
+        <th scope="col" class="result">사유</th>
+    </thead>
+    <tbody>
+    <block loop="$result => $no, $ipban">
+        <tr>
+            <td>{$ipban->bid}</td>
+            <td><b>{$ipban->ip}</b></td>
+            <td>
+                <!--@if($ipban->period==0)-->
+                <span class="police_round reject">permanently</span>
+                <!--@else-->
+                {date('Y-m-d H:i:s',$ipban->period)}
+                <!--@end-->
+            </td>
+            <td class="bnick">{$ipban->anick}</td>
+            <td class="white-space">
+                {$ipban->reason}
+            </td>
+        </tr>
+    </block>
+    </tbody>
+</table>

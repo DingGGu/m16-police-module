@@ -1,0 +1,10 @@
+<table name="ipban">
+    <column name="bid" type="number" size="11" notnull="notnull" auto_increment="auto_increment"
+            primary_key="primary_key"/>
+    <column name="ip" type="varchar" size="16" notnull="notnull"/>
+    <column name="period" type="number" size="10" notnull="notnull"/>
+    <column name="anick" type="varchar" size="16" notnull="notnull"/>
+    <column name="reason" type="bigtext" notnull="notnull"/>
+    <column name="rdate" type="number" size="10" notnull="notnull"/>
+    <column name="mdate" type="number" size="10" notnull="notnull"/>
+</table>

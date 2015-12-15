@@ -29,6 +29,8 @@
         <action name="dispWaitReport" type="view" standalone="false"/>
         <action name="dispPoliceChart" type="view" standalone="false"/>
 
+        <action name="dispIpbanList" type="view" standalone="false"/>
+
         <action name="procPoliceReport" type="controller" standalone="false" ruleset="insert_report"/>
         <action name="procPoliceJudge" type="controller" standalone="false"/>
 

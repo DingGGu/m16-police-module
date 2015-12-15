@@ -1,0 +1,15 @@
+<query id="getIpban" action="select">
+    <tables>
+        <table name="ipban"/>
+    </tables>
+    <columns>
+        <column name="*"/>
+    </columns>
+    <conditions>
+        <condition operation="more" column="period" var="banned_period"/>
+        <condition operation="equal" column="period" var="banned_perm" pipe="or"/>
+        <condition operation="like" column="ip" var="s_ip" pipe="or"/>
+        <condition operation="like" column="reason" var="s_reason" pipe="or"/>
+        <condition operation="like" column="anick" var="s_anick" pipe="or"/>
+    </conditions>
+</query>

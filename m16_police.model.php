@@ -38,6 +38,12 @@ class m16_policeModel extends m16_police
         return $output->data;
     }
 
+    function getIpban($args)
+    {
+        $output = executeQuery('m16_police.getIpban', $args);
+        return $output->data;
+    }
+
     function triggerModuleListInSitemap(&$arr)
     {
         array_push($arr, 'm16_police');
